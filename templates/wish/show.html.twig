@@ -2,6 +2,28 @@
 
 {% block body %}
 <h1 class="container-fluid d-flex justify-content-center">Detail of your wish !</h1>
+
+
+
+    <section>
+        <article >
+
+            <div class="card container-fluid d-flex justify-content-center" style="width: 20rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ wish.title }}</h5>
+                    <p class="card-text">{{ wish.description }}</p>
+                    <p class="card-text">Author : {{ wish.author }}</p>
+                    <p class="card-text">Date created : {{ wish.dateCreated|date('h:m d/m/Y') }}</p>
+
+                </div>
+            </div>
+
+
+        </article>
+
+
+    </section>
 {% endblock %}
 
 {% block tiltle %}

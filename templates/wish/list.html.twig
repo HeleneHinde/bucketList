@@ -2,6 +2,18 @@
 
 {% block body %}
 <h1 class="container-fluid d-flex justify-content-center">Your wish list !</h1>
+    <section>
+
+        {% for w in wish %}
+            <article class="container">
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="{{ path('wish_show', {'id': w.id}) }}">{{ w.title }}</a>
+                </div>
+            </article>
+        {% endfor %}
+
+    </section>
+
 {% endblock %}
 
 {% block tiltle %}
