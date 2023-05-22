@@ -12,3 +12,26 @@ a{
     text-decoration: none;
 
 }
+
+.error{
+    color: red;
+    list-style-type: none;
+
+}
+
+.flash {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    color: black;
+}
+
+.flash-success {
+    background-color: palegreen;
+}
+
+.flash-error {
+    background-color: red
+}

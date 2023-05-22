@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% embed 'views/form/wish_form.html.twig' %}
+        {% block h2 %}
+            Add a new wish !
+        {% endblock %}
+        {% block btnLabel %}
+            Add a new one !
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}
+
+{% block tiltle %}
+    {{ parent() }} | Add
+{% endblock %}

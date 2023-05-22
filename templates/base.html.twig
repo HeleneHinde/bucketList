@@ -13,6 +13,17 @@
     </head>
     <header>
         {{ include('menu/nav.html.twig') }}
+
+        <div class="container-fluid d-flex justify-content-center">
+
+        {% for label, messages in app.flashes() %}
+            {% for message in messages %}
+                <div class="flash flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        </div>
     </header>
     <body>
         {% block body %}{% endblock %}
