@@ -1,25 +1,28 @@
-<h2 class="container-fluid d-flex justify-content-center">{% block h2 %}{% endblock %}</h2>
+<h1 class="container-fluid d-flex justify-content-center">{% block h2 %}{% endblock %}</h1>
 <div class="container-fluid d-flex justify-content-center">
 
 
 
     {{ form_start(wishForm) }}
     <div class="error">
-    {{ form_errors(wishForm.title) }}
-    {{ form_errors(wishForm.description) }}
-    {{ form_errors(wishForm.author) }}
+        {{ form_errors(wishForm.title) }}
+        {{ form_errors(wishForm.description) }}
+        {{ form_errors(wishForm.author) }}
+        {{ form_errors(wishForm.category) }}
     </div>
-    {{ form_label(wishForm.title) }}
-    {{ form_widget(wishForm.title, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+        {{ form_label(wishForm.title) }}
+        {{ form_widget(wishForm.title, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
     <br>
-    {{ form_label(wishForm.description) }}
-    {{ form_widget(wishForm.description, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+        {{ form_label(wishForm.description) }}
+        {{ form_widget(wishForm.description, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
     <br>
-    {{ form_label(wishForm.author) }}
-    {{ form_widget(wishForm.author, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+        {{ form_label(wishForm.author) }}
+        {{ form_widget(wishForm.author, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
     <br>
-
+        {{ form_label(wishForm.category) }}
+        {{ form_widget(wishForm.category, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+    <br>
     <button class="btn btn-outline-info">{% block btnLabel %}{% endblock %}</button>
-    {{ form_end(wishForm) }}
+        {{ form_end(wishForm) }}
 
 </div>

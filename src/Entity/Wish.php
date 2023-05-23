@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\WishRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -40,6 +42,17 @@ class Wish
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateCreated = null;
+
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
+
+
+    public function __construct()
+    {
+        $this->wishes = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -109,8 +122,46 @@ class Wish
     #[ORM\PrePersist]
     public function setNewWish(){
         $this->setDateCreated(new \DateTime());
-        $this->isPublished(true);
+        $this->setIsPublished(true);
 
     }
+
+
+
+
+
+    public function addWish(self $wish): self
+    {
+        if (!$this->wishes->contains($wish)) {
+            $this->wishes->add($wish);
+
+        }
+
+        return $this;
+    }
+
+    public function removeWish(self $wish): self
+    {
+        if ($this->wishes->removeElement($wish)) {
+            // set the owning side to null (unless already changed)
+
+        }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+
 
 }

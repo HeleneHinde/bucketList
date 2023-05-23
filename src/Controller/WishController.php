@@ -2,23 +2,24 @@
 
 namespace App\Controller;
 
-use App\Entity\Serie;
+
 use App\Entity\Wish;
-use App\Form\SerieType;
 use App\Form\WishType;
-use App\Repository\SerieRepository;
+use App\Repository\CategoryRepository;
 use App\Repository\WishRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 #[Route('/wish', name: 'wish_')]
 class WishController extends AbstractController
 {
     #[Route('/', name: 'list')]
     public function list(WishRepository $wishRepository): Response
     {
-        $wish = $wishRepository->findBy(['isPublished' => true], ['dateCreated' => 'ASC'], 48);
+        $wish = $wishRepository->findBy(['isPublished' => true], ['category' => 'ASC'], 48);
+
 
         return $this->render('wish/list.html.twig', ['wish' => $wish]);
     }
@@ -27,7 +28,9 @@ class WishController extends AbstractController
     public function show(int $id, WishRepository $wishRepository): Response
     {
         $wish = $wishRepository->find($id);
-        return $this->render('wish/show.html.twig', ['wish' => $wish]);
+
+
+        return $this->render('wish/show.html.twig', ['wish' => $wish, 'category' => $wish->getCategory()]);
     }
 
 
@@ -57,6 +60,6 @@ class WishController extends AbstractController
             return $this->redirectToRoute('wish_show', ['id' => $wish->getId()]);
         }
 
-        return $this->render('serie/add.html.twig', ['wishForm' => $wishForm->createView()]);
+        return $this->render('wish/add.html.twig', ['wishForm' => $wishForm->createView()]);
     }
 }

@@ -35,3 +35,26 @@ a{
 .flash-error {
     background-color: red
 }
+
+table {
+    table-layout: fixed;
+}
+
+.list{
+    width: 50vw;
+
+}
+
+h1 {
+    margin: 10px;
+    margin-bottom: 20px;
+
+}
+form{
+    width: 30vw;
+
+}
+.show{
+    width: 50vw;
+
+}

@@ -2,16 +2,26 @@
 
 {% block body %}
 <h1 class="container-fluid d-flex justify-content-center">Your wish list !</h1>
-    <section>
-
+    <section class="container list">
+        <table class="table table-hover" >
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                </tr>
+            </thead>
+            <tbody>
         {% for w in wish %}
-            <article class="container">
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action" href="{{ path('wish_show', {'id': w.id}) }}">{{ w.title }}</a>
-                </div>
-            </article>
+            <tr>
+                <th scope="row"><a class="list-group-item list-group-item-action" href="{{ path('wish_show', {'id': w.id}) }}">{{ w.title }}</a></th>
+                <td><a class="list-group-item list-group-item-action" href="{{ path('wish_show', {'id': w.id}) }}">{{ w.category.name }}</a></td>
+
+            </tr>
+
         {% endfor %}
 
+            </tbody>
+        </table>
     </section>
 
 {% endblock %}

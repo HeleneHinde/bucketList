@@ -6,16 +6,15 @@
 
 
     <section>
-        <article >
-
-            <div class="card container-fluid d-flex justify-content-center" style="width: 20rem;">
-
+        <article class="container d-flex justify-content-center show">
+            <img class="w-25 "src="{{ asset('img/4586319.png') }}" alt="magic">
+            <div class="card container-fluid show" >
                 <div class="card-body">
                     <h5 class="card-title">{{ wish.title }}</h5>
                     <p class="card-text">{{ wish.description }}</p>
                     <p class="card-text">Author : {{ wish.author }}</p>
+                    <p class="card-text">Category : {{ category.name }}</p>
                     <p class="card-text">Date created : {{ wish.dateCreated|date('h:i d/m/Y') }}</p>
-
                 </div>
             </div>
 
