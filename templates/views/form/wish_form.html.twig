@@ -11,16 +11,16 @@
         {{ form_errors(wishForm.category) }}
     </div>
         {{ form_label(wishForm.title) }}
-        {{ form_widget(wishForm.title, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+        {{ form_widget(wishForm.title, {'attr': {'class': 'container-fluid d-flex justify-content-center form-control'}}) }}
     <br>
         {{ form_label(wishForm.description) }}
-        {{ form_widget(wishForm.description, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+        {{ form_widget(wishForm.description, {'attr': {'class': 'container-fluid d-flex justify-content-center form-control'}}) }}
     <br>
         {{ form_label(wishForm.author) }}
-        {{ form_widget(wishForm.author, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+        {{ form_widget(wishForm.author, {'attr': {'class': 'container-fluid d-flex justify-content-center form-control'}}) }}
     <br>
         {{ form_label(wishForm.category) }}
-        {{ form_widget(wishForm.category, {'attr': {'class': 'container-fluid d-flex justify-content-center'}}) }}
+        {{ form_widget(wishForm.category, {'attr': {'class': 'container-fluid d-flex justify-content-center form-control'}}) }}
     <br>
     <button class="btn btn-outline-info">{% block btnLabel %}{% endblock %}</button>
         {{ form_end(wishForm) }}

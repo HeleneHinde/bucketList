@@ -12,9 +12,24 @@
                 <li class="nav-item">
                     <a class="nav-link text-primary-emphasis" href="{{ path('wish_list') }}">List of Wish</a>
                 </li>
+                {% if app.user %}
                 <li class="nav-item">
                     <a class="nav-link text-primary-emphasis" href="{{ path('wish_add') }}">Add a Wish</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary-emphasis" href="{{ path('app_logout') }}">Logout</a>
+                </li>
+                    <li class="nav-item nav-link text-primary-emphasis">
+                        @Hello {{ app.user.pseudo }}
+                    </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-primary-emphasis" href="{{ path('app_register') }}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary-emphasis" href="{{ path('app_login') }}">Login</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1 class="container-fluid d-flex justify-content-center">Register</h1>
+<div class="container-fluid d-flex justify-content-center">
+    {{ form_start(registrationForm) }}
+        {{ form_label(registrationForm.pseudo) }}
+        {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'container-fluid d-flex justify-content-center form-control'}}) }}
+        {{ form_label(registrationForm.email) }}
+        {{ form_widget(registrationForm.email, {'attr': {'class': 'container-fluid d-flex justify-content-center form-control'}}) }}
+        {{ form_label(registrationForm.plainPassword) }}
+        {{ form_widget(registrationForm.plainPassword, {
+        label: 'Password'
+    }, {'attr': {'class': 'container-fluid d-flex justify-content-center form-control'}}) }}
+
+
+        <button class="btn btn-outline-info" type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+</div>
+{% endblock %}
