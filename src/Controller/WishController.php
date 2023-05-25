@@ -7,6 +7,7 @@ use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\CategoryRepository;
 use App\Repository\WishRepository;
+use App\Tools\Censurator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,7 +38,7 @@ class WishController extends AbstractController
 
     #[IsGranted("ROLE_USER")]
     #[Route('/add', name: 'add')]
-    public function add(Request $request, WishRepository $wishRepository): Response
+    public function add(Request $request, WishRepository $wishRepository, Censurator $censurator): Response
     {
 
         $wish = new Wish();
@@ -57,6 +58,9 @@ class WishController extends AbstractController
             $wish->setDateCreated(new \DateTime());
 
             $wish->setIsPublished(true);
+
+            $wish->setTitle($censurator->purify($wish->getTitle()));
+            $wish->setDescription($censurator->purify($wish->getDescription()));
 
             //ajoute la série en BDD
             $wishRepository->save($wish, true);
